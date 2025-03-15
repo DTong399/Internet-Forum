@@ -1,0 +1,494 @@
+<!doctype html>
+<style>/* retrocities v1.0 8chan.moe by k for /vr/ */
+	@import "./syntax/foundation-modified.css";
+	:root {
+		--background-color: #000000;
+		--background-gradient: #ac9bbb;
+		--text-color: #ffffff;
+		--contrast-color: #000000;
+		--background-highlight-color: #98e;
+		--horizon-sep-color: #b7c5d9;
+		--border-color: #e8e5e5;
+		--border: 0.5rem outset #0000d8;
+		--marked-color: #a07d9a;
+		--marked-border-color: #ba9dbf;
+		--marked-text-color: var(--text-color);
+		--board-title-color: #ffffff;
+		--index-text-color: #000333;
+		/*DEPRECATED
+		--board-shadow-color: rgba(105,10,15,0.6);
+		*/
+		--link-color: #adadbd;
+		--link-hover-color: #d00;
+		--navbar-text-color: #89a;
+		--table-every-other-color: #e0e5f6;
+		--button-color: #eceff6;
+		--sfw-indicator-color: navy;
+		--subject-color: #625fbd;
+		--thread-navbar-background: #E04000;
+		--thread-navbar-color: aliceblue;
+	}
+	
+	body {
+		background: #000000 repeat;
+		color: var(--text-color);
+		background-image: url('/.media/f7dcfb631a900abc235317c1af21944ee0fc2f71f0dd6cabb3c80540e79e769f.gif');
+		font-family: 'NDS12';
+		text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+	}
+	
+	footer {
+		margin: 1em 0px 1em 0px;
+	}
+	
+	.topBoards a,
+	.innerPost,
+	.sideCatalogCell,
+	.sideCatalogMarkedCell,
+	.divPages {
+		background: var(--contrast-color);
+	}
+	
+	.catalogCell {
+		border: 1px solid var(--horizon-sep-color);
+		background: var(--contrast-color);
+	}
+	
+	.floatingMenu,
+	#quick-reply table,
+	.modalDecorationPanel {
+		background: #000000;
+		color: var(--text-color);
+		border: 6px ridge #9988ee;
+		border-radius: 20px;
+	}
+	
+	#quick-reply table hr {
+		color: var(--navbar-text-color);
+	}
+	
+	.floatingMenu ul li {
+	  border-bottom: 1px solid black;
+	}
+	
+	.floatingMenu ul li:hover {
+		text-shadow: none;
+		background-color: var(--contrast-color);
+	}
+	
+	.postCell:target .innerPost,
+	.markedPost,
+	.sideCatalogMarkedCell {
+		background: var(--marked-color);
+		border: 1px solid var(--marked-border-color);
+		color: var(--marked-text-color);
+	}
+	
+	.markedPost.innerOP {
+		padding: 0;
+	}
+	
+	.boardHeader p,
+	#catalogId,
+	#overboardId {
+		color: var(--board-title-color);
+		/*text-shadow: 1px 1px 1px var(--board-shadow-color);*/
+	}
+	
+	#favouriteButton {
+		color: var(--board-title-color);
+	}
+	
+	.linkSelf,
+	.linkQuote,
+	.labelStats,
+	.spoiler:hover,
+	.returnReplyLink:before,
+	.returnReplyLink:after {
+		color: var(--text-color);
+	}
+	
+	hr {
+		border-top: 1px solid var(--horizon-sep-color);
+	}
+	
+	a,
+	.panelBacklinks a,
+	.coloredIcon,
+	.unhideButton,
+	.embedButton,
+	.checkedFavouriteButton::before,
+	.boardPages,
+	#selectedTab,
+	#showFormsButton {
+		color: var(--link-color);
+	}
+	
+	.panelBacklinks a,
+	.quoteLink {
+		text-decoration: underline;
+	}
+	
+	#selectedTab {
+		text-shadow: 0px 0px 2px var(--link-color);
+	}
+	
+	a:hover,
+	.glowOnHover:hover,
+	.floatingMenu.extraMenu div:hover,
+	.floatingMenu.hideMenu div:hover {
+		color: var(--link-hover-color); /* !important; */
+		text-shadow: none;
+	}
+	
+	.labelSubject {
+		color: var(--subject-color);
+	}
+	
+	.noEmailName,
+	.noEmailName:hover {
+		color: #117743;
+	}
+	
+	.labelRole,
+	.labelRole:before{
+		color: purple;
+	}
+	
+	.pinkText {
+		/*color: #E63E62;*/
+		color: #ff28fb;
+	}
+	
+	nav {
+		background-color: var(--background-color);
+		border-bottom: 1px solid var(--navbar-text-color);
+		text-align: left;
+		font-size: 75%;
+	}
+	
+	#postingForm th,
+	.modalTableBody th,
+	.postingTypeBanner,
+	fieldset legend,
+	#quick-reply th {
+		background: var(--background-highlight-color);
+		border: 1px solid var(--border-color);
+	}
+	
+	#newPostFieldset {
+		border: 2mm ridge rgb(153 136 238);
+		border-radius: 20px;
+	}
+	
+	.titleWrapper .titleFieldset {
+	  background: var(--contrast-color);
+	  color: var(--index-text-color);
+	}
+	
+	fieldset legend {
+		font-weight: bold;
+		font-size: 80%;
+		padding: 4px;
+	}
+	
+	fieldset:not(#newPostFieldset) legend {
+		width: 100%;
+		margin-left: -17px;
+		padding-right: 28px;
+	/*
+		-moz-padding-end: 28px;
+		-moz-margin-start: -17px;
+	*/
+	}
+	
+	#actionsForm fieldset.reportFieldset legend {
+		margin-left: -12px;
+		padding-right: 18px;
+		-moz-padding-end: 12px;
+		-moz-margin-start: -9px;
+	}
+	
+	#newPostFieldset legend {
+		width: 98%;
+	}
+	
+	#settingsWrapper fieldset {
+		width: 100%;
+		margin: 1em;
+		background: white;
+	}
+	
+	/* Work on this?*/
+	input[type="button"],
+	input[type="submit"],
+	button,
+	.dropzone,
+	.selectedCell,
+	#contentBoxInner button,
+	#contentBoxInner .hidden.reloadCaptchaButton,
+	#contentBoxInner input[type="submit"] {
+		border: 1px double var(--border-color);
+		background: var(--contrast-color);
+		color: var(--text-color);
+	}
+	
+	#boardContentLinks,
+	#showFormsButton,
+	#divTools,
+	.threadPages,
+	.innerUtility {
+		margin-top: 0;
+		font-size: 85%;
+	}
+	
+	.innerUtility.top {
+	  background-color: var(--thread-navbar-background);
+	  font-weight: bold;
+	  color: var(--thread-navbar-color);
+	  padding-top: 2px;
+	  padding-bottom: 2px;
+	}
+	
+	.innerUtility.top a {
+	  color: aliceblue;
+	}
+	
+	.threadPages #boardContentLinks {
+		font-size: inherit;
+	}
+	
+	/* front page */
+	#infoBox,
+	#contentBox {
+		font-size: 90%;
+		text-align: left;
+		padding: 0;
+	}
+	
+	#divStats {
+		font-size: 90%;
+	}
+	
+	#divBoardsLegend,
+	#federatedText,
+	#labelContent {
+		background: var(--background-highlight-color);
+	}
+	
+	#contentBox p,
+	#infoBox p {
+		background: white;
+		padding: 10px;
+		font-size: 12pt;
+	}
+	
+	/*#contentBox, */
+	#infoBox,
+	#federatedText,
+	#labelContent,
+	#divBoardsLegend,
+	.titleFieldset {
+		border: 1px solid var(--border-color);
+	}
+	
+	#divLatestImages img,
+	#divLatestPosts .latestPostCell{
+		background: unset; /*var(--contrast-color);*/
+		border: 1px solid transparent;
+	}
+	
+	#divLatestPosts .latestPostCell{
+		padding: 0;
+	}
+	/* end front page */
+	
+	#contentBoxInner #labelName {
+		text-shadow: none;
+	}
+	
+	#divBoards .boardsCell:nth-child(2n),
+	#contentBoxInner.federatedTable .linkFederated:nth-child(2n+1),
+	#contentBoxInner #divThreads div:nth-child(2n) {
+		background-color: var(--table-every-other-color);
+	}
+	
+	#dynamicAnnouncement {
+		border-color: var(--horizon-sep-color);
+	}
+	
+	.indicatorSfw:after {
+		color: var(--sfw-indicator-color);
+	}
+	
+	.innerPost,
+	.divPages,
+	.reportFieldset,
+	.sideCatalogCell {
+		border: 4px ridge var(--horizon-sep-color);
+	}
+	
+	.title {
+	  font-weight: normal;
+	}
+	
+	.innerPost {
+		border-top: none;
+		border-left: none;
+	}
+	
+	.quoteTooltip .innerPost {
+		border: 1px solid var(--horizon-sep-color);
+		padding: 12px;
+	}
+	
+	#divPages a::before,
+	#divPages a::after,
+	#linkNext::before,
+	#linkNext::after,
+	#linkPrevious::before,
+	#linkPrevious::after,
+	#divPagesSpacer,
+	nav > span {
+		color: var(--navbar-text-color);
+	}
+	
+	nav .coloredIcon,
+	#questionBox:before,
+	#questionBox:after,
+	#showFederatedButton:before,
+	#showFederatedButton:after,
+	.returnReplyLink:before,
+	.returnReplyLink:after,
+	#showFormsButton:before,
+	#showFormsButton:after,
+	#threadOpen:before,
+	#threadOpen:after,
+	.opHead .coloredIcon {
+		color: var(--link-color);
+	}
+	
+	.selectedCell {
+		background: var(--background-highlight-color);
+		color: var(--text-color);
+		border: 1px solid var(--border-color);
+	}
+	
+	.removeButton {
+		color: var(--text-color);
+	}
+	
+	
+	input,
+	textarea,
+	select {
+		background-color: white;
+		color: black;
+	}
+	
+	#themeSelector {
+		color: black;
+	}
+	
+	/*get rid of the obnoxious roundrects*/
+	input, select, textarea, 
+	input[type=button], input[type=submit], button,
+	.dropzone, 
+	.selectedCell, 
+	.catalogCell, 
+	.topBoards a, 
+	#divLatestImages img,
+	#divLatestPosts .latestPostCell, 
+	.innerPost, .sideCatalogCell, 
+	.markedPost, 
+	.sideCatalogMarkedCell, 
+	#postingForm th, 
+	.modalTableBody th {
+		border-radius: 20px;
+	}
+	
+	input, select, textarea,
+	input[type=button], input[type=submit], button, .dropzone, .selectedCell {
+		font-family: arial, helvetica, sans-serif;
+	}
+	
+	input[type=checkbox].postingCheckbox {
+		display: inline;
+	}
+	
+	input[type=checkbox].postingCheckbox+label::before {
+		content: "";
+	}
+	
+	input[type=checkbox].postingCheckbox:checked+label::before {
+		content: "";
+	}
+	
+	input[type=checkbox].postingCheckbox+label,
+	#postingForm label {
+		display: inline-block;
+		margin: -0.5em;
+	}
+	
+	code {
+		font-size: 13px;
+		background-color: rgba(255,255,255,0.15);
+		display: inline-block;
+		border-radius: 6px;
+		padding: 0 1em;
+	}
+	
+	.inlineCode > code {
+		padding: 0;
+	}
+	
+	@media only screen and (max-width: 812px) {
+	  nav {
+		font-size: 115%;
+		height: auto;
+		padding: 2px 2px;
+	  }
+	}
+	
+	#logoBox div.logoImg {
+	  background-image: url("/.static/logo/logo_blue.png");
+	}
+	#bannerImage {
+		max-width: 100%;
+		height: unset !important;
+	}
+	@font-face {
+	  font-family: SCE-PS3 Rodin LATIN Regular;
+	  src: url('/.media/5ef77f937c1bffcc3f31457aa23624f38ad4c72f42dae8abd6013a9933d37df0');
+	}
+	@font-face {
+	  font-family: LanaPixel;
+	  src: url('/.media/5525058a2e53a1edbbc731d8c29e2f07de2770183ea1fad501baf119cca771df');
+	}
+	@font-face {
+	  font-family: Quarlow;
+	  src: url('/.media/8fb48d42171203d27aa02f8ba906e40c6e2aa813638acf99a1a223a8700884f3');
+	}
+	@font-face {
+	  font-family: NDS12;
+	  src: url('/.media/90431e5adeeb042cd15b4cc82c781c316217fde0579903a698eef9020b91852c');
+	}
+	@font-face {
+	  font-family: ChronoType;
+	  src: url('/.media/b4b2a5110202e07119a0bbfa6c76c98f040e1d9a5b6bba927ed4a77d2ad8b527');
+	}
+	.titleWrapper .titleFieldset {
+		background: var(--contrast-color);
+		color: #ffffff;
+	}</style>
+<title>metischan</title>
+<body>
+  <ul>
+  {% for board in boards %}
+  <li><a href="/{{board[1]}}">{{board[1]}} - {{board[2]}}</a></li>
+  {% endfor %}
+  </ul>
+
+  <img src="https://7chan.org/rotate.php"></img>
+
+</body>
